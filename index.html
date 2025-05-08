@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Furniture Store</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="cart.html">Cart</a></li>
+          <li><a href="checkout.html">Checkout</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <h1>Welcome to Our Furniture Store</h1>
+
+      <section class="categories">
+        <h2>Shop by Category</h2>
+        <div class="category">
+          <h3>Sofas</h3>
+          <a
+            href="product.html?category=sofa&name=Comfortable%20Sofa&price=499.00&img=images/sofa1.jpg"
+          >
+            <img src="images/sofa1.jpg" alt="Sofa" />
+          </a>
+        </div>
+        <div class="category">
+          <h3>Chairs</h3>
+          <a
+            href="product.html?category=chair&name=Stylish%20Chair&price=199.00&img=images/chair1.jpg"
+          >
+            <img src="images/chair1.jpg" alt="Chair" />
+          </a>
+        </div>
+        <div class="category">
+          <h3>Tables</h3>
+          <a
+            href="product.html?category=table&name=Wooden%20Dining%20Table&price=299.00&img=images/table1.jpg"
+          >
+            <img src="images/table1.jpg" alt="Table" />
+          </a>
+        </div>
+      </section>
+
+      <section class="featured-products">
+        <h2>Featured Products</h2>
+        <div
+          class="product"
+          data-name="Comfortable Sofa"
+          data-price="499.00"
+          data-img="images/sofa1.jpg"
+        >
+          <img src="images/sofa1.jpg" alt="Comfortable Sofa" />
+          <h3>Comfortable Sofa</h3>
+          <p>$499.00</p>
+          <button class="view-details">View Details</button>
+        </div>
+        <div
+          class="product"
+          data-name="Stylish Chair"
+          data-price="199.00"
+          data-img="images/chair1.jpg"
+        >
+          <img src="images/chair1.jpg" alt="Stylish Chair" />
+          <h3>Stylish Chair</h3>
+          <p>$199.00</p>
+          <button class="view-details">View Details</button>
+        </div>
+        <div
+          class="product"
+          data-name="Wooden Dining Table"
+          data-price="299.00"
+          data-img="images/table1.jpg"
+        >
+          <img src="images/table1.jpg" alt="Wooden Dining Table" />
+          <h3>Wooden Dining Table</h3>
+          <p>$299.00</p>
+          <button class="view-details">View Details</button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Modal -->
+    <div class="modal" id="productModal">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <img id="modalImg" src="" alt="Product" />
+        <h2 id="modalTitle">Product Name</h2>
+        <p id="modalPrice">$0.00</p>
+        <button id="addToCart" class="view-details">Add to Cart</button>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2025 Furniture Store</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+  </body>
+</html>

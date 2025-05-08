@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Details - Furniture Store</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="cart.html">Cart</a></li>
+          <li><a href="checkout.html">Checkout</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <div class="product-details">
+        <img id="productImage" src="" alt="Product Image" />
+        <div class="details">
+          <h1 id="productName">Product Name</h1>
+          <p class="price" id="productPrice">$0.00</p>
+          <ul id="productFeatures">
+            <!-- Features will be populated by JavaScript -->
+          </ul>
+          <button id="addToCart">Add to Cart</button>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Furniture Store</p>
+    </footer>
+
+    <script>
+      // Product features by category
+      const productFeatures = {
+        sofa: [
+          "Premium fabric upholstery",
+          "Sturdy wooden frame",
+          "High-density foam cushions",
+          "Easy to assemble",
+          'Dimensions: 84" W x 35" D x 31" H',
+        ],
+        chair: [
+          "Ergonomic design",
+          "Adjustable height",
+          "Breathable mesh back",
+          "Padded seat cushion",
+          'Dimensions: 24" W x 24" D x 40" H',
+        ],
+        table: [
+          "Solid wood construction",
+          "Seats 6-8 people",
+          "Scratch-resistant finish",
+          "Extendable design",
+          'Dimensions: 72" L x 36" W x 30" H',
+        ],
+      };
+
+      document.addEventListener("DOMContentLoaded", () => {
+        // Get URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const category = urlParams.get("category");
+        const name = urlParams.get("name");
+        const price = urlParams.get("price");
+        const img = urlParams.get("img");
+
+        // Update page title
+        document.title = `${name} - Furniture Store`;
+
+        // Update product details
+        document.getElementById("productImage").src = img;
+        document.getElementById("productImage").alt = name;
+        document.getElementById("productName").textContent = name;
+        document.getElementById("productPrice").textContent = `$${price}`;
+
+        // Add product features
+        const featuresList = document.getElementById("productFeatures");
+        if (productFeatures[category]) {
+          productFeatures[category].forEach((feature) => {
+            const li = document.createElement("li");
+            li.textContent = feature;
+            featuresList.appendChild(li);
+          });
+        }
+
+        // Add to cart functionality
+        document.getElementById("addToCart").addEventListener("click", () => {
+          const product = {
+            name: name,
+            price: parseFloat(price),
+            image: img,
+          };
+
+          // Get existing cart or initialize empty array
+          let cart = JSON.parse(localStorage.getItem("cart")) || [];
+          cart.push(product);
+          localStorage.setItem("cart", JSON.stringify(cart));
+          alert("Added to cart!");
+        });
+      });
+    </script>
+  </body>
+</html>
